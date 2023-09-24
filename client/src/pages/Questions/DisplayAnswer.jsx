@@ -11,7 +11,7 @@ const DisplayAnswer = ({ question }) => {
          
     
     const location = useLocation()
-    const url = "http://localhost:3000"
+    const url = "https://stackfrontend.netlify.app"
     const User= useSelector((state)=> (state.currentUserReducer))
     
     const dispatch= useDispatch()

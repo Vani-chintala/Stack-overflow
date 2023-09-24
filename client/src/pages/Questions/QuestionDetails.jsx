@@ -16,7 +16,7 @@ const QuestionDetails = () => {
 
     const { id } = useParams()
     console.log(id)
-    //getting data from backend,store to front end
+    //getting data from backend,store in front end
     const questionsList = useSelector(state => state.questionsReducer)
     console.log(questionsList)
     const [answer, setAnswer] = useState("")
@@ -25,8 +25,9 @@ const QuestionDetails = () => {
     const dispatch = useDispatch()
     const location = useLocation()
     //console.log(location)
-    const url = 'https://localhost:3000'
+    const url = "https://stackfrontend.netlify.app"
 
+    
     // var questionsList = [{
     //     _id: '1',
     //     upVotes: 3,

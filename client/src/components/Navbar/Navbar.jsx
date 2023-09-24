@@ -40,7 +40,7 @@ const Navbar = () => {
         }//account gets loggedout after 1 hr by decoding value in token
     }
     dispatch(setCurrentUser(JSON.parse(localStorage.getItem("Profile"))))
-   },[User?.token,dispatch]) //whenever above line occurs this dispatch in dependency calls
+   },[dispatch]) //whenever above line occurs this dispatch in dependency calls
     //here useEffect applies sideeffects whenever navbar is available on Home page
 
      

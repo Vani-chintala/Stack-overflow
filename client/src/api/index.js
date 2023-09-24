@@ -1,6 +1,6 @@
 import axios from "axios"
 //axios is used to send req to backend
-const API= axios.create({baseURL:"http://localhost:5000"})
+const API= axios.create({baseURL:"https://stackoverflowbackendwork.onrender.com"})
 
 //we are going to add token in each req(because this is the place we are sending req to backend)
 //we are some extra values to the req to make our application more secure
@@ -13,8 +13,8 @@ API.interceptors.request.use((req)=>{
 })
 
 
-export const logIn = (authData) => API.post('/user/login',authData)
-export const signUp = (authData) => API.post('/user/signup',authData)
+export const logIn = (authData) => API.post('/user/login', authData)
+export const signUp = (authData) => API.post('/user/signup', authData)
 
 export const postQuestion = (questionData) => API.post('/question/Ask',questionData)
 export const getQuestionsAll = () => API.get('/question/get')

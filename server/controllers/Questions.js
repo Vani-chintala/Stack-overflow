@@ -4,7 +4,7 @@ import mongoose from "mongoose"
 
 export const askQuestion = async (req, res) => {
    const postQuestionData = req.body
-   const postQuestion = new Questions({ ...postQuestionData }) //Questions= model
+   const postQuestion = new Questions(postQuestionData) //Questions= model
    try {
       await postQuestion.save()
       res.status(200).json("Posted a question successfully")
