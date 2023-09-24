@@ -47,7 +47,7 @@
     padding: 10px 20px;
 }
 .navbar form{
-       flex-grow:1;
+       flex-grow : 1;
        padding:0px 12px;
        position:relative;
 }
@@ -55,7 +55,7 @@
     min-width:90%;
     margin:0;
     padding:8px 10px 8px 32px;
-    font-size:20px;
+    font-size:14px;
     border:1px solid #00000033;
     border-radius: 3px;
 }

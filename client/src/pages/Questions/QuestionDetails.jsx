@@ -25,7 +25,7 @@ const QuestionDetails = () => {
     const dispatch = useDispatch()
     const location = useLocation()
     //console.log(location)
-    const url = "https://stackfrontend.netlify.app"
+    const url = "https://cheerful-palmier-8952fe.netlify.app"
 
     
     // var questionsList = [{
