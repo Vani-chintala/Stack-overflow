@@ -97,7 +97,7 @@ export const forgotpassword = async (req, res) => {
 
 //verifyimg id ,token 
 export const resetverify = async (req, res) => {
-  console.log("hai",her)
+  
   const { id, token } = req.params
   
   console.log(id,token)
