@@ -19,7 +19,7 @@ const UserProfile = () => {
     const loginUsers = useSelector((state) => state.usersReducer)
     //loginUsers or User in navbar are same
     const currentProfile = loginUsers.filter((user) => user._id === id)[0]
-    //console.log(currentProfile) 
+    console.log(currentProfile) 
     //here we can click any user (not logged in also)
     const currentUser = useSelector((state) => state.currentUserReducer)
     //current user is logined user at present

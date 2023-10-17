@@ -1,4 +1,4 @@
-
+//to make node development easy...we are using express
 import express from "express"
 import mongoose from "mongoose"
 import cors from "cors" //to eliminate cross origin issues we use cors
@@ -8,6 +8,8 @@ import dotenv from "dotenv"
 import userRoutes from "./routes/users.js"
 import questionRoutes from "./routes/questions.js"
 import answerRoutes from "./routes/answers.js"
+import userotpRoutes from "./routes/userotp.js"
+import chatbotRoutes from "./routes/chatbot.js"
 
 const app = express()
 dotenv.config()
@@ -24,6 +26,8 @@ app.get('/',(req,res)=>{
 app.use('/user',userRoutes)
 app.use('/question',questionRoutes)
 app.use('/answer',answerRoutes)
+app.use('/otp',userotpRoutes)
+app.use('/chat',chatbotRoutes)
 
 const PORT = process.env.PORT || 5000
 

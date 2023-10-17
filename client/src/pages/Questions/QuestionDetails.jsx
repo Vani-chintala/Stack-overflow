@@ -25,7 +25,7 @@ const QuestionDetails = () => {
     const dispatch = useDispatch()
     const location = useLocation()
     //console.log(location)
-    const url = "https://cheerful-palmier-8952fe.netlify.app"
+    const url = "http://localhost:3000"
 
     
     // var questionsList = [{
@@ -130,8 +130,9 @@ const QuestionDetails = () => {
     }
 
     const handleUpVote = () => {
-        dispatch(voteQuestion(id, 'upvote', User?.result?._id)) //id is questions id
+            dispatch(voteQuestion(id, 'upvote', User?.result?._id)) //id is questions id
     }
+    
 
     const handleDownVote = () => {
         dispatch(voteQuestion(id, 'downvote', User?.result?._id))  //id is questions id

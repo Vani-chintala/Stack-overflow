@@ -11,7 +11,7 @@ const DisplayAnswer = ({ question }) => {
          
     
     const location = useLocation()
-    const url = "https://cheerful-palmier-8952fe.netlify.app"
+    const url = "http://localhost:3000"
     const User= useSelector((state)=> (state.currentUserReducer))
     
     const dispatch= useDispatch()

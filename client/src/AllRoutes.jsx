@@ -8,6 +8,13 @@ import DisplayQuestions from "./pages/Questions/DisplayQuestions"
 import Tags from "./pages/Tags/Tags"
 import Users from "./pages/Users/Users"
 import UserProfile from "./pages/UserProfile/UserProfile"
+import Forgotpassword from "./pages/Forgotpassword/Forgotpassword"
+import Resetpassword from "./pages/Resetpassword/Resetpassword"
+import ChatbotHome from "./pages/ChatbotHome/ChatbotHome"
+import Chatmainpage from "./pages/Chatmainpage/Chatmainpage"
+import Javascriptchat from "./pages/Javascriptchat/Javascriptchat"
+
+
 
 
 const AllRoutes=()=>{
@@ -16,12 +23,17 @@ const AllRoutes=()=>{
       <Routes>
         <Route exact={true} path="/" element={<Home/>}/>
         <Route path="/Auth" element={<Auth/>}/>
+        <Route path="/forgotpassword" element={<Forgotpassword/>}/>
+        <Route path="/resetpassword/:id/:token" element={<Resetpassword/>}/>
         <Route path="/Questions" element={<Questions/>}/>
         <Route path="/AskQuestion" element={<AskQuestion/>}/>
         <Route path="/Questions/:id" element={<DisplayQuestions/>}/>
         <Route path= "/Tags" element={<Tags/>}/>
         <Route path = "/Users" element ={<Users/>}/>
         <Route path= "/Users/:id" element = {<UserProfile/>}/>
+        <Route path= "/chatbot" element={<ChatbotHome/>}/>
+        <Route path= "/chatbot/main" element= {<Chatmainpage/>}/>
+        <Route path= "/chatbot/javascript" element={<Javascriptchat/>}/>
       </Routes>
      </div>
     )

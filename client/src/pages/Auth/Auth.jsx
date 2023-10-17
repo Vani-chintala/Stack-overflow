@@ -5,10 +5,10 @@ import icon from "../../assets/icon.png"
 import AboutAuth from "./AboutAuth"
 import { signup,login } from "../../actions/auth"
 import {useDispatch} from "react-redux"
-import {useNavigate} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 
 const Auth = () => {
-  const [isSignup, setIsSignup] = useState(false)
+  const [isSignup, setIsSignup] = useState(false) // true
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -66,7 +66,7 @@ const Auth = () => {
             justifyContent: "space-between" }}>
               <h4>Password</h4>
               {!isSignup && <p style={{ color: "#007ac6",
-               fontSize: "13px" }}>Forgot password?</p>}
+               fontSize: "13px" }}><Link to ='/forgotpassword'>Forgot password?</Link></p>}
             </div>
             <input type="password" name="password" 
             id="password" value={password}
@@ -82,7 +82,7 @@ const Auth = () => {
                 <input type="checkbox" id="check"/>
                 <p style={{ fontSize: "15px" }}>
                   Opt-in to receive occasional,<br />
-                  product updates, user research invitations,<br />
+                  product updates, user research invitations,<br/>
                   company announcements, and digests.</p>
               </label>
             )

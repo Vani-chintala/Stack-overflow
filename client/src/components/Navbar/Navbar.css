@@ -53,7 +53,7 @@
 }
 .navbar form input{
     min-width:90%;
-    margin:0;
+    margin-right:10px;
     padding:8px 10px 8px 32px;
     font-size:14px;
     border:1px solid #00000033;

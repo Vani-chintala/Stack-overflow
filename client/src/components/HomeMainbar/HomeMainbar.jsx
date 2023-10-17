@@ -5,10 +5,12 @@ import {useLocation,useNavigate} from "react-router-dom"
 
 import QuestionsList from "./QuestionsList"
 import { useSelector } from "react-redux"
+
+
 const HomeMainbar=()=>{
 
 const location = useLocation()
-const user = 2
+const User = useSelector((state) => (state.currentUserReducer))
 const navigate= useNavigate()
 
 //getting data from backend,store to front end
@@ -91,7 +93,7 @@ console.log(questionsList)
 
 
 const checkAuth=()=>{
-    if(user===null){
+    if(User===null){
         alert("log in or signup to ask a question")
         navigate('/Auth')
     }else{
