@@ -29,6 +29,8 @@ app.use('/answer',answerRoutes)
 app.use('/otp',userotpRoutes)
 app.use('/chat',chatbotRoutes)
 
+
+
 const PORT = process.env.PORT || 5000
 
 const DATABASE_URL = process.env.CONNECTION_URL

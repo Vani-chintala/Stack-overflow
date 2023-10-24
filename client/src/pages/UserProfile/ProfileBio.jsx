@@ -1,5 +1,9 @@
 
+
+
 const ProfileBio = ({ currentProfile }) => {
+
+    
     return (
         <div>
             <div>
@@ -32,11 +36,7 @@ const ProfileBio = ({ currentProfile }) => {
                     )
                 }
             </div>
-            <div>
-                <p>Points received :</p>
-                <p>Questions asked :</p>
-                <p>Answers answered :</p>
-            </div>
+            
         </div>
     )
 }

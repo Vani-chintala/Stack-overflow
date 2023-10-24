@@ -18,7 +18,7 @@
 }
 .question-votes p{
     margin:0;
-    font-size:15px;
+    font-size:13px;
     text-align: center;
 }
 .votes-icon{
@@ -30,7 +30,7 @@
     color:#ef8236;
 }
 .question-details-container .question-body{
-    line-height: 22px;
+    line-height: 20px;
     white-space:pre-line;
 }
 .question-details-container .question-details-tags{
@@ -73,7 +73,7 @@
 .question-actions-user div:nth-child(2) p,
 .question-actions-user div:nth-child(2) .user-link{
   text-decoration:none;
- font-size:14px;
+ font-size:13px;
   margin:0;
 }
 
@@ -123,3 +123,9 @@
     line-height:10px;
     white-space:pre-line;
 }
+
+@media screen and (max-width: 1020px) {
+    .question-details-page {
+      width: calc(100% - 24px);
+    }
+  }

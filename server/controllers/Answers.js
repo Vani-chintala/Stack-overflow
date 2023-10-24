@@ -4,7 +4,7 @@ import mongoose from "mongoose"
 
 
 export const postAnswer = async (req, res) => {
-  //req,res from frontend
+  //req,res from ,to frontend
   const { id: _id } = req.params
   const { noOfAnswers, answerBody, userAnswered, userId } = req.body
 

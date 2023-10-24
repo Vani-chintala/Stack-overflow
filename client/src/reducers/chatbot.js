@@ -1,9 +1,8 @@
 
 const chatbotReducer = (state = (null),action) => {
     switch(action.type){
-        case 'AVASCRIPTCHAT': 
+        case 'JAVASCRIPTCHAT': 
         return {...state,data : action?.data}
-        
         default : 
         return state
     }

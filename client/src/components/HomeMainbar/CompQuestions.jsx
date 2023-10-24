@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom"
 import moment from "moment"
-
+import "./HomeMainbar.css"
 
 const CompQuestions = ({ question }) => {
     return (
@@ -20,7 +20,7 @@ const CompQuestions = ({ question }) => {
             <div className="display-tags-time">
                 <div className="display-tags">
                     {
-                        question.questionTags.map((tag, index) => (
+                        question.questionTags.map((tag) => (
                             <p key={tag}>{tag}</p>
                         ))
                     }

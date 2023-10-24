@@ -20,9 +20,9 @@ const AskQuestion = () => {
         e.preventDefault()
         //console.log({questionTitle,questionBody,questionTags})
         dispatch(askQuestion({questionTitle,questionBody,questionTags,
-            userPosted : User.result.name,
+            userPosted : User?.result.name,
             userId : User?.result?._id}, // ? not there also no problem
-            navigate))//User is line no:17
+            navigate))
          }
 
     const handleEnter =(e) =>{

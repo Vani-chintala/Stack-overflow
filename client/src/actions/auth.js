@@ -25,7 +25,7 @@ export const login = (authData, navigate) => async (dispatch) => {
 }
 
 export const forgotpassword = (email, navigate) => async (dispatch) => {
-  console.log(email)
+
   try {
     const { data } = await api.forgotPassword(email)
     console.log(data)
@@ -37,30 +37,30 @@ export const forgotpassword = (email, navigate) => async (dispatch) => {
   }
 }
 
- 
-export const resetverification = (id,token) => async(dispatch)=> {
-  console.log(id,token)
-  try{
-    const {data} = await api.resetVerification(id,token)
-    
-    dispatch({type : "RESET_VERIFY",data})
+
+export const resetverification = (id, token) => async (dispatch) => {
+  console.log(id, token)
+  try {
+    const { data } = await api.resetVerification(id, token)
+
+    dispatch({ type: "RESET_VERIFY", data })
     console.log("user valid")
-  }catch(error){
+  } catch (error) {
     console.log("user not valid")
-    //document.write(error)
+    document.write(error, "User token expired")
   }
 }
 
 export const resetpassword = (password, confirmpassword, id, token, navigate) => async (dispatch) => {
-
-  console.log( password, confirmpassword, id, token )
+ 
+  console.log(password, confirmpassword, id, token)
   try {
     const { data } = await api.resetPassword(password, confirmpassword, id, token)
-    console.log(data)
+    
     dispatch({ type: "RESET_PASSWORD", data })
     console.log("successfully reset")
     navigate('/auth')
   } catch (error) {
-    console.log("error while resetting password")
+    console.log("Error while resetting password")
   }
 }

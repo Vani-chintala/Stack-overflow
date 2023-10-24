@@ -1,5 +1,5 @@
 
-const questionsReducer = (state={data:null},action) =>{
+const questionsReducer = (state= {data:null}, action) =>{
     switch(action.type){
      case "POST_QUESTION":
         return {...state} //here we don't need data: action.payload(action.payload data is controllers/questions =>res.json

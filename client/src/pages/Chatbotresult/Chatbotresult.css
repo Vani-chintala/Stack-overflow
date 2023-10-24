@@ -13,7 +13,7 @@
   padding:10px;
   position:absolute;
   width:100%;
-  bottom :0;
+ 
 }
 
 .com-container .semi-container-1 form input{
@@ -27,6 +27,12 @@
     outline:none;
 }
 
+.com-container .semi-container-1 .usericon{
+    position : absolute;
+    left : 25px;
+    top : 30px;
+    padding-bottom: 15px;
+}
 .com-container .semi-container-1 form button{
     width:10%;
     margin:10px;
@@ -41,26 +47,17 @@
     cursor:pointer;
     outline:none;
 }
-.semi-container-2{
+
+.semi-container-2 p{
     background-color:#cccef0;
-    padding: 10px;
-    width:fit-content;
-    margin-bottom:20px;
-}
-.semi-container-2 {
-    font-size:14px;
-    width:fit-content;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-
-.semi-container-3{
-    background-color:#e7c693;
-    padding:15px;
+    padding:13px;
     font-size:14px;
      width:fit-content;
      border-radius : 5px;
-     float:right;
+     float:left;
+     position : absolute;
+     top :100px;
+     left : 25px;
+     margin:0 20px 0 0;
     white-space : pre-wrap;   /* to get space in the response */
 }

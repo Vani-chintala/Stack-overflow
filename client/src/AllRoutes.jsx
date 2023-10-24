@@ -11,8 +11,9 @@ import UserProfile from "./pages/UserProfile/UserProfile"
 import Forgotpassword from "./pages/Forgotpassword/Forgotpassword"
 import Resetpassword from "./pages/Resetpassword/Resetpassword"
 import ChatbotHome from "./pages/ChatbotHome/ChatbotHome"
-import Chatmainpage from "./pages/Chatmainpage/Chatmainpage"
-import Javascriptchat from "./pages/Javascriptchat/Javascriptchat"
+import Chatbotresult from "./pages/Chatbotresult/Chatbotresult"
+import RewardsCalculation from "./pages/RewardsCalculation/RewardsCalculation"
+import Rewardspage from "./pages/Rewardspage/Rewardspage"
 
 
 
@@ -32,8 +33,10 @@ const AllRoutes=()=>{
         <Route path = "/Users" element ={<Users/>}/>
         <Route path= "/Users/:id" element = {<UserProfile/>}/>
         <Route path= "/chatbot" element={<ChatbotHome/>}/>
-        <Route path= "/chatbot/main" element= {<Chatmainpage/>}/>
-        <Route path= "/chatbot/javascript" element={<Javascriptchat/>}/>
+        <Route path= "/chatbot/main/:otpvariable" element={<Chatbotresult/>}/>
+        <Route path = "/rewards" element = {<Rewardspage/>}/>
+        <Route path="/rewards/:id" element = {<RewardsCalculation/>}/>
+        
       </Routes>
      </div>
     )

@@ -9,10 +9,10 @@ const authReducer = (state = (null), action) => {
             return { ...state, data: null }
         case 'FORGOT_PASSWORD':
             return { ...state, data: action?.data }
-        //  case 'RESET_VERIFY':
-        //      return { ...state, data: action?.data }
-        case 'RESET_PASSWORD':
-            return { ...state, data: action?.data }
+         case 'RESET_VERIFY':
+             return { ...state, data: action?.data }
+             case 'RESET_PASSWORD':
+                return { ...state, data: action?.data }
         default:
             return state;
     }

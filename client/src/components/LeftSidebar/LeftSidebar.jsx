@@ -4,8 +4,9 @@ import "./LeftSidebar.css"
 import Globe from "../../assets/Globe.svg"
 
 
-
 const LeftSidebar=()=>{
+
+    
     return(
         <div className="left-sidebar">
             <nav className="side-nav">
@@ -26,6 +27,9 @@ const LeftSidebar=()=>{
                 <NavLink to="/chatbot" className="side-nav-links" activeclassname="active" >
                    <p>Chatbot</p>
                 </NavLink>
+                 <NavLink to="/rewards" className="side-nav-links" activeclassname="active" >
+                   <p>Rewards</p>
+                </NavLink> 
             </div>
             </nav>
         </div>

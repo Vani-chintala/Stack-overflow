@@ -3,9 +3,9 @@ import { useState } from "react"
 import './Auth.css'
 import icon from "../../assets/icon.png"
 import AboutAuth from "./AboutAuth"
-import { signup,login } from "../../actions/auth"
-import {useDispatch} from "react-redux"
-import {Link, useNavigate} from "react-router-dom"
+import { signup, login } from "../../actions/auth"
+import { useDispatch } from "react-redux"
+import { Link, useNavigate } from "react-router-dom"
 
 const Auth = () => {
   const [isSignup, setIsSignup] = useState(false) // true
@@ -13,7 +13,7 @@ const Auth = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const dispatch= useDispatch()
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const handleSwitch = () => {
@@ -29,10 +29,10 @@ const Auth = () => {
       if (!name) {
         alert("Enter a name to continue")
       }
-       console.log({name,email,password})
-      dispatch(signup({name,email,password},navigate))
-    }else{
-      dispatch(login({email,password},navigate))
+      console.log({ name, email, password })
+      dispatch(signup({ name, email, password }, navigate))
+    } else {
+      dispatch(login({ email, password }, navigate))
     }
   }
 
@@ -42,53 +42,59 @@ const Auth = () => {
       {
         isSignup && <AboutAuth />}
       <div className="auth-container-2">
-        {!isSignup && <img src={icon} 
-        alt="stackoverflowicon" className="logoin-logo" />}
+        {!isSignup && <img src={icon}
+          alt="stackoverflowicon" className="logoin-logo" />}
         <form onSubmit={handleSubmit}>
           {
             isSignup && (
               <label htmlFor="name">
                 <h4>Display Name</h4>
-                <input type="text" 
-                name="name" id="name" value={name} 
-                onChange={(e) => {setName(e.target.value)}} />
+                <input type="text"
+                  name="name" id="name" value={name}
+                  onChange={(e) => { setName(e.target.value) }} />
               </label>
             )
           }
           <label htmlFor="email">
             <h4>Email</h4>
             <input type="email" name="email"
-             id="email" value={email} 
-             onChange={(e) => {setEmail(e.target.value)}} />
+              id="email" value={email}
+              onChange={(e) => { setEmail(e.target.value) }} />
           </label>
           <label htmlFor="password">
-            <div style={{ display: "flex", 
-            justifyContent: "space-between" }}>
+            <div style={{
+              display: "flex",
+              justifyContent: "space-between"
+            }}>
               <h4>Password</h4>
-              {!isSignup && <p style={{ color: "#007ac6",
-               fontSize: "13px" }}><Link to ='/forgotpassword'>Forgot password?</Link></p>}
+              {!isSignup && <p style={{
+                color: "#007ac6",
+                fontSize: "13px"
+              }}><Link to='/forgotpassword' className="forgot-link">Forgot password?</Link></p>}
             </div>
-            <input type="password" name="password" 
-            id="password" value={password}
-              onChange={(e) => {setPassword(e.target.value)}} />
-            {isSignup && <p style={{ color: "#666767",
-             fontSize: "15px" }}>
+            <input type="password" name="password"
+              id="password" value={password}
+              onChange={(e) => { setPassword(e.target.value) }} />
+            {isSignup && <p style={{
+              color: "#666767",
+              fontSize: "15px"
+            }}>
               Passwords must atleast contain eight characters,<br />
               including atleast 1 letter and 1 number</p>}
           </label>
           {
             isSignup && (
               <label htmlFor="check">
-                <input type="checkbox" id="check"/>
+                <input type="checkbox" id="check" />
                 <p style={{ fontSize: "15px" }}>
                   Opt-in to receive occasional,<br />
-                  product updates, user research invitations,<br/>
+                  product updates, user research invitations,<br />
                   company announcements, and digests.</p>
               </label>
             )
           }
-          <button type="submit" className="auth-btn">{isSignup ? 
-          "Sign Up" : "Log in"}</button>
+          <button type="submit" className="auth-btn">{isSignup ?
+            "Sign Up" : "Log in"}</button>
           {
             isSignup && (
               <p style={{ color: "#666767", fontSize: "13px" }}>

@@ -1,8 +1,10 @@
 
 import express from "express"
-import {Javascriptchat} from "../controllers/chatbot.js"
+import {Chatbot} from "../controllers/chatbot.js"
 const router = express.Router()
 
-router.post('/javascript',Javascriptchat)
+
+
+router.post('/chatbot',Chatbot)
 
 export default router

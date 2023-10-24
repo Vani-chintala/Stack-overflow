@@ -1,6 +1,6 @@
 import { useState } from "react"
 import "./ChatbotHome.css"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { sendotp, verifyotp } from "../../actions/userotp"
 import { useNavigate } from "react-router-dom"
 
@@ -12,12 +12,20 @@ const ChatbotHome = () => {
     const navigate = useNavigate()
 
 
+    const User = useSelector((state) => (state.currentUserReducer))
+
     const handleSubmitotp = (e) => {
         e.preventDefault()
-        if (!email) {
-            alert("Please enter email to send OTP")
+        if (User === null) {
+            alert("Please login")
+            navigate("/Auth")
         } else {
-            dispatch(sendotp({ email }))
+            if (!email) {
+                alert("Please enter email to verify your email")
+            } else {
+                dispatch(sendotp({ email }))
+            }
+
         }
     }
 
@@ -51,18 +59,8 @@ const ChatbotHome = () => {
                     <button type="submit" >Send OTP</button>
                 </form>
             </div>
-            {/* <div className="success" style={{ color: "green" }}>
-                Otp verified successfully
-            </div>
-            <div className="error" style={{ color: "red" }}>
-                Invalid otp
-            </div> */}
+
             <div className="otp-container-2">
-                {/* <div className="text">
-               // onClick={()=> navigate('/chatbot/main')}//add in line 70 for button
-                    <p>An OTP has been sent to <p className="semiemail">{email}</p></p><br/>
-                    <p>Please enter OTP to verify</p>
-                </div> */}
                 <form onSubmit={handleverifyotp}>
                     <div className="input-fields">
                         <input type="number" className="input-num" value={otpvariable}

@@ -16,10 +16,10 @@ export const sendotp = (email) => async (dispatch) => {
 export const verifyotp = (otpvariable, navigate) => async (dispatch) => {
     
     try {
-        const { data } = await api.verifyOtp( otpvariable)
+        const { data } = await api.verifyOtp(otpvariable)
         dispatch({ type: "VERIFY_OTP", data })
         console.log("otp verification is success")
-        navigate("/chatbot/main")
+        navigate(`/chatbot/main/${otpvariable}`)
     } catch (error) {
         console.log("otp verification failed")
     }

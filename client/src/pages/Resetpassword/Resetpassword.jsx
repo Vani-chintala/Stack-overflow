@@ -1,3 +1,4 @@
+
 import { useState } from "react"
 import "./Resetpassword.css"
 import { useDispatch } from "react-redux"
@@ -20,7 +21,7 @@ const Resetpassword = () => {
 
      useEffect (()=> {
         dispatch(resetverification(id,token))
-    }) 
+    },[dispatch,id,token]) 
 
 
     const updatePasswordfn = (e) => {
@@ -28,16 +29,12 @@ const Resetpassword = () => {
         if (!password || !confirmpassword) {
             alert("Enter details to continue")
         } else if (password !== confirmpassword) {
-            alert("Password and confirmpassword must be same")
-        } else {
-            console.log(password, confirmpassword)
-            console.log(id, token)
-            dispatch(resetpassword({
-                password: password,
-                confirmpassword: confirmpassword,
-                id: id,
-                token: token,
-            },navigate))
+            alert("password and confirmpassword must be same")
+        } else if(password.length && confirmpassword.length <6){
+            alert("Password must be atleast 6 characters")
+        }else {
+            console.log(password,confirmpassword,id,token)
+            dispatch(resetpassword(password,confirmpassword,id,token,navigate))
         }
 
     }

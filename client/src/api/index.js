@@ -16,9 +16,9 @@ API.interceptors.request.use((req)=>{
 export const logIn = (authData) => API.post('/user/login', authData)
 export const signUp = (authData) => API.post('/user/signup', authData)
 export const forgotPassword = (email) => API.post('/user/passwordlink', email)
-export const resetVerification = (id,token) =>API.get(`/user/resetpassword/${id}/${token}`)
-export const resetPassword = (id,token,password,confirmpassword) => 
-         API.patch(`/user/resetpassword/${id}/${token}`,password,confirmpassword)
+export const resetVerification = (id,token) => API.get(`/user/resetpass/${id}/${token}`)
+export const resetPassword = (password,confirmpassword,id,token) => 
+         API.patch(`/user/reset/${id}/${token}`,{password,confirmpassword})
 
 export const sendOtp = (email) => API.post('/otp/sendotp',email)
 export const verifyOtp =(otpvariable) => API.post('/otp/verifyotp',otpvariable)
@@ -32,9 +32,6 @@ export const  placeAnswer =(id,noOfAnswers,answerBody,userAnswered,userId)=>
    API.patch(`/answer/post/${id}`,{noOfAnswers,answerBody,userAnswered,userId}) //${id}=answerid
 export const deletingAnswer = (id,answerId,noOfAnswers) => 
    API.patch(`/answer/delete/${id}`,{answerId,noOfAnswers})
-
-export const javascriptChat = ({text},setResponse,setdisplayText) => API.post('/chat/javascript',
-{text},setResponse,setdisplayText)
 
    
 export const getAllUsers = () => API.get('/user/getAllUsers')

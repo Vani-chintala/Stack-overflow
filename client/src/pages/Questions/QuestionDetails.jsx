@@ -16,18 +16,18 @@ const QuestionDetails = () => {
 
     const { id } = useParams()
     console.log(id)
-    //getting data from backend,store in front end
+    //getting data from backend,store to front end
     const questionsList = useSelector(state => state.questionsReducer)
     console.log(questionsList)
     const [answer, setAnswer] = useState("")
     const User = useSelector((state) => (state.currentUserReducer))
+    console.log(User?.result?.name)
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const location = useLocation()
     //console.log(location)
     const url = "http://localhost:3000"
 
-    
     // var questionsList = [{
     //     _id: '1',
     //     upVotes: 3,
@@ -113,9 +113,10 @@ const QuestionDetails = () => {
             } else {
                 dispatch(postAnswer({
                     id, noOfAnswers: answerLength + 1, answerBody: answer,
-                    userAnswered: User.result.name,
+                    userAnswered: User?.result?.name,
                     userId: User?.result._id 
                 }))
+                setAnswer(" ")
             }
         }
     }
@@ -130,9 +131,8 @@ const QuestionDetails = () => {
     }
 
     const handleUpVote = () => {
-            dispatch(voteQuestion(id, 'upvote', User?.result?._id)) //id is questions id
+        dispatch(voteQuestion(id, 'upvote', User?.result?._id)) //id is questions id
     }
-    
 
     const handleDownVote = () => {
         dispatch(voteQuestion(id, 'downvote', User?.result?._id))  //id is questions id

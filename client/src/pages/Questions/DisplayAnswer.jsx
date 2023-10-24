@@ -39,7 +39,7 @@ const DisplayAnswer = ({ question }) => {
                                 {
                                      User?.result?._id === ans?.userId && (
                                         <button type="button" 
-                                        onClick={()=>handleDelete(ans._id,
+                                        onClick={()=>handleDelete(ans?._id,
                                             question.noOfAnswers)}>Delete</button>
                                         )                       
                                 }
@@ -52,8 +52,8 @@ const DisplayAnswer = ({ question }) => {
                                     <Avatar backgroundColor="lightgreen"
                                         px="8px" py="5px"
                                         borderRadius="4px">
-                                        {ans.userAnswered.charAt(0).toUpperCase()}</Avatar>
-                                    <div>{ans.userAnswered}</div>
+                                        {ans?.userAnswered.charAt(0).toUpperCase()}</Avatar>
+                                    <div>{ans?.userAnswered}</div>
                                 </Link>
                             </div>
                         </div>

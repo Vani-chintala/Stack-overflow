@@ -4,7 +4,7 @@ import { forgotpassword } from "../../actions/auth"
 import "./Forgotpassword.css"
 import { useNavigate, Link } from "react-router-dom"
 import { useState } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 
 
@@ -12,6 +12,7 @@ const Forgotpassword = () => {
 
     const [email, setEmail] = useState('')
     //const [message,setMessage] = useState('')
+    //const User = useSelector((state) => (state.currentUserReducer))
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
@@ -25,7 +26,9 @@ const Forgotpassword = () => {
 
             //("Password reset link is successfully sent to your email")
         }
+
     }
+
 
     return (
         <div className="container-1">

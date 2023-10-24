@@ -12,7 +12,6 @@ const userSchema= mongoose.Schema({
     points : {type : Number},
     QuestionsAsked :{type: Number},
     AnswersAnswered : {type: Number}
-    
 })
 
 export default mongoose.model("Users",userSchema)

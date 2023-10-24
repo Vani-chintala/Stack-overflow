@@ -5,7 +5,6 @@ import Users from "../models/auth.js"
 import dotenv from 'dotenv'
 dotenv.config()
 import nodemailer from "nodemailer"
-import mongoose from "mongoose"
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -61,16 +60,13 @@ export const forgotpassword = async (req, res) => {
       res.status(401).json({ message: "User doesn't exists" })
     } else {
       const token = jwt.sign({ email: existinguser.email, id: existinguser._id },
-        process.env.JWT_SECRET, { expiresIn: '30m' })
-        console.log(token)
+        process.env.JWT_SECRET, { expiresIn: '10m' })
+      console.log(token)
       const storetokeninDb = await Users.findByIdAndUpdate(
-        {_id : existinguser._id},
-        
-        {token : token},
+        { _id: existinguser._id },
+        { token: token },
         { new: true })
-       await storetokeninDb.save()
-     console.log(storetokeninDb )
-      
+      await storetokeninDb.save()
       if (storetokeninDb) {
         const mailOptions = {
           from: process.env.EMAIL,
@@ -97,21 +93,22 @@ export const forgotpassword = async (req, res) => {
 
 //verifyimg id ,token 
 export const resetverify = async (req, res) => {
-  
+
   const { id, token } = req.params
-  
-  console.log(id,token)
- 
+
+  //console.log(id,token)
   try {
-       //checking id  and token values in db
-    const useridvalid = await Users.findOne({ _id: id }, {token:token})
-    console.log(useridvalid)
-   //checking whether token is expired or not
+    //checking id  and token values in db
+    const useridvalid = await Users.findOne({ _id: id, token: token })
+    //console.log(useridvalid)
+    //checking whether token is expired or not
     const verifytoken = jwt.verify(token, process.env.JWT_SECRET)
-    if (useridvalid && verifytoken._id) {
-      res.status(201).json({ message: "Valid user " })
+    //console.log(verifytoken)
+    if (useridvalid && verifytoken.id) {
+      console.log("User valid")
+      res.status(201).json({ message: "User is valid" })
     } else {
-      res.status(405).json({ message: "Not a valid user" })
+      res.status(405).json({ message: "Token expired and User not verified" })
     }
   } catch (error) {
     res.status(500).json({ message: "Invalid credentials" })
@@ -120,27 +117,36 @@ export const resetverify = async (req, res) => {
 
 
 export const resetpassword = async (req, res) => {
-  const { id, token } = req.params
+
   const { password, confirmpassword } = req.body
-  console.log(id,token)
+  const { id, token } = req.params
+  console.log(password, confirmpassword)
+  console.log(id, token)
   //verifying id,token
-      const existinguser = await Users.findOne({_id : id ,token : token})
-    if (!existinguser) {
-      return res.status(404).send("User unavailable")
-    } else if (password !== confirmpassword) {
-      return res.status(405).json({ message: "Please enter password and confirmpassword same" })
-    } else {
-      try {
+  try {
+    const existinguser = await Users.findOne({ _id: id, token: token })
+    console.log(existinguser)
+    //checking token expired or not
+    const verifytoken = jwt.verify(token, process.env.JWT_SECRET)
+    console.log(verifytoken)
+
+    if (existinguser && verifytoken.id) {
+      
       const hashedpassword = await bcrypt.hash(password, 12)
-      const updatePassword = await Users.findByIdAndUpdate(_id, existinguser.token, {
+      const updatePassword = await Users.findByIdAndUpdate({_id : id}, {
         $set: {
           "password": hashedpassword
         }
       }, { new: true })
       updatePassword.save()
-      res.status(200).json(updatePassword, { message: "Password updated successfully" })
-    } catch (error) {
-      res.status(500).json({ message: "something went wrong" })
+      res.status(200).json({result: updatePassword })
+    }else {
+      res.status(405).json({ message: " User not verified" })
     }
   }
+  catch (error) {
+    res.status(500).json({ message: "something went wrong" })
+  }
 }
+
+
